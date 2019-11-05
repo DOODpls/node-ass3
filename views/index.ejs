@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <div class="main-cont">
+    <form method="post" class="login" id="loginst">
+      <fieldset>
+        <div id="logs">
+          <p class="regbutt">registration</p>
+          <div class="group">
+            <input id="email" type="email" name="email" required>
+            <label for="email" id="label1">Email</label>
+            <div class="bar"></div>
+          </div>
+          <div class="group">
+              <input id="password" type="password" name="password" required>
+              <label for="password"id="label2">Password</label>
+              <div class="bar"></div>
+            </div>
+          <div class="submitdiv">
+            <input type="submit" value="Login" id="sub" formaction="/profile">
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    <form method="post" class="registration" id="regist">
+      <fieldset>
+        <div id="logs">
+          <p class="logbutt">login</p>
+          <div class="group">
+            <input id="emailreg" type="email" name="emailreg" required>
+            <label for="email" id="regemail">Email</label>
+            <div class="bar"></div>
+          </div>
+          <div class="group">
+              <input id="passwordreg" type="password" name="passwordreg" required>
+              <label for="passwordreg"id="regpw">Password</label>
+              <div class="bar"></div>
+            </div>
+            <div class="group">
+                <input id="reppass" type="password" name="reppass" required>
+                <label for="reppass"id="regreppw">Repeat Password</label>
+                <div class="bar"></div>
+              </div>
+          <div class="submitdiv">
+            <input type="submit" value="Register" id="subreg" formaction="/registered" class="subreg">
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</body>
+<script src="js/animation.js"></script>
+</html>
