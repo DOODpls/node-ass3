@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 require('dotenv').config()
 const pages = require('./pages');
-const bcrypt = require('bcrypt');
 const usrschema = require('./models/usrschema');
 const express = require('express');
 const path = require('path');
+const defRouter = require('./routes/webRoutes');
 
 const app = express();
 mongoose.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true,useNewUrlParser: true });
@@ -28,44 +28,15 @@ app.use(express.urlencoded({ extended: false }))
 app.get('/', function(request, response){
   response.render('index', pages.index)
 })
-app.post('/registered', function(request, response){
 
-  const email = request.body.emailreg;
-  const passw = request.body.passwordreg;
+app.use('/yahoo', defRouter);
 
-  const newuser = new usrschema(
-    {
-      email: email,
-      password: passw,
-      status: 'offline'
-    }
-  );
-
-  const hashedpw = newuser.modifiedPaths(function(newsers){
-    newsers.passw = bcrypt.hashSync
-    (newsers.passw, 10)
-    return newsers
-  })
-
-  var obj = {emaill: email, passwr: passw}
-  newuser.save(function (err, hashedpw){
-    hashedpw();
-    if (err) return console.error(err);
-    console.log('document added to collection')
-  })
-  response.render("registered", obj)
-})
-
-
-app.use(express.static(path.join(__dirname, 'assets')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function (err, response) {
   console.error(err.stack)
   response.status(404).render('notfound');
 })
-
-
-
 
 const PORT = process.env.PORT || 3000;
 
