@@ -14,7 +14,6 @@ pgroutr.post('/registered', function(request, response){
       status: 'offline'
     }
   );
-
   // const hashedpw = newuser.modifiedPaths(function(newsers){
   //   newsers.passw = bcrypt.hashSync
   //   (newsers.passw, 10)

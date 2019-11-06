@@ -17,19 +17,15 @@ db.once('open', function() {
 });
 
 
-
-
-
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }))
-
 
 
 app.get('/', function(request, response){
   response.render('index', pages.index)
 })
 
-app.use('/yahoo', defRouter);
+app.use('/registered', defRouter);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
