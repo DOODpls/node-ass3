@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 require('dotenv').config()
 const pages = require('./pages');
-const usrschema = require('./models/usrschema');
 const express = require('express');
 const path = require('path');
-const defRouter = require('./routes/webRoutes');
+const pgroutr = require('./routes/webRoutes');
 
 const app = express();
 mongoose.connect(process.env.DB_CONNECTION, { useUnifiedTopology: true,useNewUrlParser: true });
@@ -25,12 +24,12 @@ app.get('/', function(request, response){
   response.render('index', pages.index)
 })
 
-app.use('/registered', defRouter);
+app.use('/registered', pgroutr);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function (err, response) {
-  console.error(err.stack)
+  console.error(err.body)
   response.status(404).render('notfound');
 })
 

@@ -1,9 +1,8 @@
 const express = require('express');
 const pgroutr = express.Router();
-const Usrchma = require('../models/usrschema.js');
+const Usrchma = require('../models/usrschema');
 
-pgroutr.post('/registered', function(request, response){
-
+pgroutr.post('/', function(request, response){
   const email = request.body.emailreg;
   const passw = request.body.passwordreg;
 
@@ -14,6 +13,7 @@ pgroutr.post('/registered', function(request, response){
       status: 'offline'
     }
   );
+
   // const hashedpw = newuser.modifiedPaths(function(newsers){
   //   newsers.passw = bcrypt.hashSync
   //   (newsers.passw, 10)
@@ -21,11 +21,19 @@ pgroutr.post('/registered', function(request, response){
   // })
 
   var obj = {emaill: email, passwr: passw}
-  newuser.save(function (err, newuser){
+  Usrchma.find({ 'email': email }, function (err, docs) {
+    // docs is an array
+    if(docs == ''){
+      newuser.save(function (err, newuser){
     if (err) return console.error(err);
     console.log('document added to collection')
   })
   response.render("registered", obj)
+    }else{
+      
+    }
+  });
+  
 })
 
 module.exports = pgroutr;
