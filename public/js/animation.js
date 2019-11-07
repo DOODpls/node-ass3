@@ -19,6 +19,9 @@ function same(){
   }
 }
 
+
+
+
 password.addEventListener('keyup', same);
 reppas.addEventListener('keyup', same);
 

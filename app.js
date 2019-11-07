@@ -25,6 +25,7 @@ app.get('/', function(request, response){
 })
 
 app.use('/registered', pgroutr);
+app.use('/profile', pgroutr);
 
 app.use(express.static(path.join(__dirname, 'public')));
 

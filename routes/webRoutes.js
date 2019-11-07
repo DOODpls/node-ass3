@@ -1,6 +1,8 @@
 const express = require('express');
 const pgroutr = express.Router();
 const Usrchma = require('../models/usrschema');
+const pages = require('../pages');
+
 
 pgroutr.post('/', function(request, response){
   const email = request.body.emailreg;
@@ -14,26 +16,38 @@ pgroutr.post('/', function(request, response){
     }
   );
 
-  // const hashedpw = newuser.modifiedPaths(function(newsers){
-  //   newsers.passw = bcrypt.hashSync
-  //   (newsers.passw, 10)
-  //   return newsers
-  // })
-
   var obj = {emaill: email, passwr: passw}
-  Usrchma.find({ 'email': email }, function (err, docs) {
     // docs is an array
-    if(docs == ''){
-      newuser.save(function (err, newuser){
-    if (err) return console.error(err);
-    console.log('document added to collection')
-  })
-  response.render("registered", obj)
-    }else{
-      
+    newuser.save(function (err, newuser){
+      if (err) return console.error(err);
+      console.log('document added to collection')
+      response.render("registered", obj)
+    })
+})
+
+
+pgroutr.post('/', function(request, response){
+  const emailog = request.body.email;
+  const passwlog = request.body.password;
+
+  const loginuser = new Usrchma(
+    {
+      email: emailog,
+      password: passwlog,
+      status: 'online'
     }
-  });
-  
+  );
+
+  var obj = {emaill: email}
+  loginuser.find({'email': emailog, 'password': passwlog}, function (err, docs) {
+    if (docs !== ''){
+        console.log('user exists: ',self.email);
+        next(new Error("User exists!") );
+        response.render("profile", obj)
+    }else{                
+    
+    }
+});
 })
 
 module.exports = pgroutr;
