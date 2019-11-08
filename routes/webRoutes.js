@@ -29,7 +29,7 @@ pgroutr.post('/', function(request, response){
 pgroutr.post('/', function(request, response){
   const emailog = request.body.email;
   const passwlog = request.body.password;
-
+  console.log(emailog)
   const loginuser = new Usrchma(
     {
       email: emailog,
@@ -37,15 +37,15 @@ pgroutr.post('/', function(request, response){
       status: 'online'
     }
   );
+  var self = this;
+  var obj = {emaill: emailog}
 
-  var obj = {emaill: email}
-  loginuser.find({'email': emailog, 'password': passwlog}, function (err, docs) {
-    if (docs !== ''){
-        console.log('user exists: ',self.email);
-        next(new Error("User exists!") );
-        response.render("profile", obj)
+  Usrchma.find({'email': self.email, 'password': self.password}, function (err, docs) {
+    if (!self.email){
+        console.log('account not found')
     }else{                
-    
+      console.log('user exists: ',self.email);
+        response.render("profile", obj)
     }
 });
 })

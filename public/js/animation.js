@@ -5,6 +5,8 @@ let logbutt = document.querySelector('.logbutt');
 let password = document.querySelector('#passwordreg');
 let reppas = document.querySelector('#reppass');
 let subreg = document.querySelector('#subreg');
+let loginst = document.querySelector('#loginst');
+let regist = document.querySelector('#regist');
 
 
 
@@ -77,6 +79,8 @@ regbut.addEventListener('click', function(){
   haha("Email", "regemail");
   haha("Password", "regpw");
   haha("Repeat Password", "regreppw");
+  loginst.disabled = true;
+  regist.disabled = false;
 })
 
 logbutt.addEventListener('click', function(){
@@ -84,4 +88,6 @@ logbutt.addEventListener('click', function(){
   regg.className = 'registration';
   haha("Email", "label1");
   haha("Password", "label2");
+  loginst.disabled = false;
+  regist.disabled = true;
 })
