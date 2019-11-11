@@ -15,6 +15,9 @@ function same(){
   if (password.value != reppas.value){
     subreg.className = 'subreg2'
     subreg.disabled = true;
+  }else if(password.value == '' && reppas.value == ''){
+    subreg.className = 'subreg2'
+    subreg.disabled = true;
   } else {
     subreg.className = 'subreg3'
     subreg.disabled = false;
@@ -27,7 +30,7 @@ function same(){
 password.addEventListener('keyup', same);
 reppas.addEventListener('keyup', same);
 
-function haha(value, idlabel){
+function randomLetter(value, idlabel){
   var theLetters = "abcdefghijklmnopqrstuvwxyz123456789#%&^+=-"; //You can customize what letters it will cycle through
   var emm = value;
   var  // Your text goes here
@@ -70,24 +73,27 @@ function haha(value, idlabel){
     block = "";
   }
   };
-haha("Email", "label1");
-haha("Password", "label2");
+// haha("Email", "label1");
+// haha("Password", "label2");
+randomLetter("Email", "regemail");
+randomLetter("Password", "regpw");
+randomLetter("Repeat Password", "regreppw");
 
 regbut.addEventListener('click', function(){
   loginn.className = 'login2';
   regg.className = 'registration2';
-  haha("Email", "regemail");
-  haha("Password", "regpw");
-  haha("Repeat Password", "regreppw");
+  randomLetter("Email", "regemail");
+  randomLetter("Password", "regpw");
+  randomLetter("Repeat Password", "regreppw");
   loginst.disabled = true;
   regist.disabled = false;
 })
 
-logbutt.addEventListener('click', function(){
-  loginn.className = 'login';
-  regg.className = 'registration';
-  haha("Email", "label1");
-  haha("Password", "label2");
-  loginst.disabled = false;
-  regist.disabled = true;
-})
+// logbutt.addEventListener('click', function(){
+//   loginn.className = 'login';
+//   regg.className = 'registration';
+//   haha("Email", "label1");
+//   haha("Password", "label2");
+//   loginst.disabled = false;
+//   regist.disabled = true;
+// })

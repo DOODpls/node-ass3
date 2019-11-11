@@ -7,6 +7,9 @@ const pagesInfo = {
   },
   registered: {
     title: "Registered"
+  },
+  alreadysub:{
+    title: "Account Already Exist"
   }
 }
 

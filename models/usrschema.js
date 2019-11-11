@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const userschemas = new mongoose.Schema(
   {
     email: {
@@ -10,24 +9,14 @@ const userschemas = new mongoose.Schema(
       type: String,
       required: true
     },
-    status: {
-      type: String,
-      required: true
+    over_18: {
+      type: Boolean,
+      default: false
     }
   }
 );
 
-userschemas.pre('save', function (next) {
-  var self = this;
-  userschema.find({'email': self.email}, function (err, docs) {
-      if (!docs.length){
-          next();
-      }else{                
-          console.log('user exists: ',self.email);
-          next(new Error("User exists!") );
-      }
-  });
-}) ;
+
 
 const userschema = mongoose.model('users', userschemas);
 module.exports = userschema;
