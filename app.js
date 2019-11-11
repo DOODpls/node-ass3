@@ -23,9 +23,15 @@ app.use(express.urlencoded({ extended: false }))
 app.get('/', function(request, response){
   response.render('index', pages.index)
 })
+// app.get('/alreadyssubbed', function(request, response){
+//   response.render('alreadysub', pages.alreadysub)
+// })
+// app.get('/error', function(request, response){
+//   response.render('error', pages.error)
+// })
 
 app.use('/registered', pgroutr);
-app.use('/profile', pgroutr);
+// app.use('/profile', pgroutr);
 
 app.use(express.static(path.join(__dirname, 'public')));
 

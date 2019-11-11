@@ -7,6 +7,7 @@ let reppas = document.querySelector('#reppass');
 let subreg = document.querySelector('#subreg');
 let loginst = document.querySelector('#loginst');
 let regist = document.querySelector('#regist');
+let name = document.querySelector('#name');
 
 
 
@@ -78,16 +79,16 @@ function randomLetter(value, idlabel){
 randomLetter("Email", "regemail");
 randomLetter("Password", "regpw");
 randomLetter("Repeat Password", "regreppw");
-
-regbut.addEventListener('click', function(){
-  loginn.className = 'login2';
-  regg.className = 'registration2';
-  randomLetter("Email", "regemail");
-  randomLetter("Password", "regpw");
-  randomLetter("Repeat Password", "regreppw");
-  loginst.disabled = true;
-  regist.disabled = false;
-})
+randomLetter("Name", "regname");
+// regbut.addEventListener('click', function(){
+//   loginn.className = 'login2';
+//   regg.className = 'registration2';
+//   randomLetter("Email", "regemail");
+//   randomLetter("Password", "regpw");
+//   randomLetter("Repeat Password", "regreppw");
+//   loginst.disabled = true;
+//   regist.disabled = false;
+// })
 
 // logbutt.addEventListener('click', function(){
 //   loginn.className = 'login';

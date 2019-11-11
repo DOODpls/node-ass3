@@ -1,24 +1,20 @@
 @import url('./template.css');
-
 .main-cont{
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
-
-.em_add{
+.not-found{
   position: relative;
   width: auto;
   font-family: 'Share Tech Mono', monospace;
   font-size:70px;
-  color: #eb56ff;
+  color: #eba05a;
   font-weight: 400;
-  text-shadow: 1px 0px 4px #eb56ff, 2px 0px 4px #eb56ff, 3px 0px 4px #eb56ff, 2px 0px 3px #6403a5, 2px 3px 15px #6403a5, 2px 0px 15px, 5px 0px 125px, 20px 0vw 200px #6403a5,40px 0vw 200px #6403a5;
+  text-shadow: 1px 0px 4px #eba05a, 2px 0px 4px #eba05a, 3px 0px 4px #eba05a, 2px 0px 3px #925800, 2px 3px 15px #925800, 2px 0px 15px, 5px 0px 125px, 20px 0vw 200px #925800,40px 0vw 200px #925800;
   text-align: center;
+  transform: rotate(10deg);
 }
-@media screen and (max-width: 1050px) {
-  .em_add{
-    font-size: 6vw;
-  }
-}
+
+
 .exit{
   font-family: 'Share Tech Mono', monospace;
   font-size: 30px;

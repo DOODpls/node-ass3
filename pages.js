@@ -14,6 +14,10 @@ const pagesInfo = {
   notfound:{
     title: "404 NOT FOUND",
     message: "404 NOT FOUND"
+  },
+  error: {
+    title: "Error: Something Happend",
+    message: "Something Happened"
   }
 }
 
