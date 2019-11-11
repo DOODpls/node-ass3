@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function (err, response) {
   console.error(err.body)
-  response.status(404).render('notfound');
+  response.status(404).render('notfound', pages.notfound);
 })
 
 const PORT = process.env.PORT || 3000;

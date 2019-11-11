@@ -10,6 +10,10 @@ const pagesInfo = {
   },
   alreadysub:{
     title: "Account Already Exist"
+  },
+  notfound:{
+    title: "404 NOT FOUND",
+    message: "404 NOT FOUND"
   }
 }
 
